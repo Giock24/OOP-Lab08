@@ -5,6 +5,7 @@ package it.unibo.oop.lab.simplegui;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.TextField;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +16,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  * This class is a simple application that writes a random number on a file.
@@ -34,34 +36,39 @@ public class MiniGUI {
      * 
      */
     public MiniGUI() {
-        /*
         final JPanel canvas = new JPanel();
         canvas.setLayout(new BorderLayout());
         final JButton write = new JButton("Print a random number on standard output");
         canvas.add(write, BorderLayout.CENTER);
         frame.setContentPane(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        */
+
         //MyGUI
+
         final JPanel panel1 = new JPanel();
         panel1.setLayout(new BoxLayout(panel1, BoxLayout.X_AXIS));
-        panel1.add(Box.createHorizontalGlue());
-        final JButton scrivi = new JButton("prova");
-        panel1.add(scrivi, BorderLayout.CENTER);
-        frame.setContentPane(panel1);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+        canvas.remove(write);
+        panel1.add(write, BorderLayout.CENTER);
+        canvas.add(panel1);
+        //frame.setContentPane(panel1);
+
+        final TextField testo = new TextField("Linea de Testo", 10);
+        canvas.add(testo, BorderLayout.NORTH);
+
+
         /*
          * Handlers
          */
-        /*
+
         write.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
-                System.out.println(rng.nextInt());
+                int rn = rng.nextInt();
+                System.out.println(rn);
+               testo.setText(Integer.toString(rn));
             }
         });
-        */
+
     }
     private void display() {
         /*
@@ -86,6 +93,7 @@ public class MiniGUI {
          * OK, ready to pull the frame onscreen
          */
         frame.setVisible(true);
+        frame.pack();
     }
 
     /**
