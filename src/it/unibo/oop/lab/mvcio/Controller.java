@@ -1,5 +1,7 @@
 package it.unibo.oop.lab.mvcio;
 
+import java.io.File;
+
 /**
  * 
  */
@@ -27,5 +29,26 @@ public class Controller {
      * System.getProperty("file.separator"). The combined use of those methods leads
      * to a software that runs correctly on every platform.
      */
+
+    private static final String PATH = System.getProperty("user.home")
+            + System.getProperty("file.separator")
+            + "output.txt";
+    //private static final String FILE = "output.txt";
+
+    public Controller() {
+
+    }
+
+    public static void getFile() {
+       // return Controller.FILE;
+    }
+
+    /**
+     *  @return String
+     *          return PATH
+     */
+    public String getPATH() {
+        return Controller.PATH;
+    }
 
 }
