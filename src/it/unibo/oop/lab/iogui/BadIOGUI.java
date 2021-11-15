@@ -5,10 +5,17 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.PrintStream;
+import java.nio.file.Files;
 import java.util.Random;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -41,6 +48,16 @@ public class BadIOGUI {
         canvas.add(write, BorderLayout.CENTER);
         frame.setContentPane(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        //My Part TODO
+        final JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
+        canvas.remove(write);
+        panel.add(write, BorderLayout.CENTER);
+        canvas.add(panel);
+
+        final JButton b1 = new JButton("READ");
+        panel.add(b1);
         /*
          * Handlers
          */
@@ -60,6 +77,23 @@ public class BadIOGUI {
                     JOptionPane.showMessageDialog(frame, e1, "Error", JOptionPane.ERROR_MESSAGE);
                     e1.printStackTrace();
                 }
+            }
+        });
+
+        b1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent e) {
+                //System.out.println("Scrivo");
+
+                try (BufferedReader r = new BufferedReader(new FileReader(PATH))) {
+                    System.out.println(r.readLine());
+                } catch (FileNotFoundException e2) {
+                    System.out.println(e2);
+                    e2.printStackTrace();
+                } catch (IOException e3) {
+                    System.out.println(e3);
+                    e3.printStackTrace();
+                } 
             }
         });
     }
@@ -87,6 +121,7 @@ public class BadIOGUI {
          * OK, ready to pull the frame onscreen
          */
         frame.setVisible(true);
+        frame.pack();
     }
 
     /**
