@@ -1,6 +1,9 @@
 package it.unibo.oop.lab.mvcio;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  * 
@@ -33,14 +36,29 @@ public class Controller {
     private static final String PATH = System.getProperty("user.home")
             + System.getProperty("file.separator")
             + "output.txt";
+
     //private static final String FILE = "output.txt";
 
-    public Controller() {
+    private File currentFile = new File(PATH);
+    private String percorso = PATH;
 
+    /**
+     *  @param nameFile
+     *          if the File doesn't exist, create a new File with that Name
+     */
+    public void setFile(final String nameFile) {
+        if (!this.currentFile.exists()) {
+            this.currentFile = new File(nameFile);
+            this.percorso = this.currentFile.getAbsolutePath();
+        }
     }
 
-    public static void getFile() {
-       // return Controller.FILE;
+    /**
+     *  @return 
+     *          the Name of currentFile
+     */
+    public String getFile() {
+       return this.currentFile.getName();
     }
 
     /**
@@ -48,7 +66,19 @@ public class Controller {
      *          return PATH
      */
     public String getPATH() {
-        return Controller.PATH;
+        return this.percorso;
+    }
+
+    /**
+     *  @param word
+     *          if you insert a word, will be write in the File
+     */
+    public void writeOnFile(final String word) {
+        try (BufferedWriter w = new BufferedWriter(new FileWriter(this.currentFile))) {
+            w.write(word);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
