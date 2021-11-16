@@ -1,9 +1,15 @@
 package it.unibo.oop.lab.mvcio;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 /**
  * A very simple program using a graphical interface.
@@ -11,7 +17,8 @@ import javax.swing.JFrame;
  */
 public final class SimpleGUI {
 
-    private final JFrame frame = new JFrame();
+    private static final String TITLE = "My First Java graphical interface";
+    private final JFrame frame = new JFrame(TITLE);
 
     /*
      * Once the Controller is done, implement this class in such a way that:
@@ -37,6 +44,36 @@ public final class SimpleGUI {
      * builds a new {@link SimpleGUI}.
      */
     public SimpleGUI() {
+        final JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+        final JButton saveB = new JButton("Save");
+        panel.add(saveB, BorderLayout.SOUTH);
+        frame.setContentPane(panel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        final JTextArea area = new JTextArea("Text Area");
+        panel.add(area, BorderLayout.CENTER);
+
+        /*
+         * Handlers
+         */
+        saveB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent e) {
+                if (area.getText() != null) {
+                    //creiamo il controller, otteniemo il testo e boom il gioco è fatto
+                    final Controller c1 = new Controller();
+                    c1.setFile("newfile");
+
+                    c1.writeOnFile(area.getText());
+                    System.out.println(c1.getPATH());
+                    System.out.println(c1.getFile());
+                }
+            }
+
+        });
+
+
         /*
          * Make the frame half the resolution of the screen. This very method is
          * enough for a single screen setup. In case of multiple monitors, the
@@ -57,6 +94,13 @@ public final class SimpleGUI {
          * on screen. Results may vary, but it is generally the best choice.
          */
         frame.setLocationByPlatform(true);
+        frame.setVisible(true);
+    }
+
+    public static void main(final String... s) {
+
+        new SimpleGUI();
+
     }
 
 }

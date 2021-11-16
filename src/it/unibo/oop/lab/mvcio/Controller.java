@@ -44,13 +44,13 @@ public class Controller {
 
     /**
      *  @param nameFile
-     *          if the File doesn't exist, create a new File with that Name
+     *          set a new File where you can write
      */
     public void setFile(final String nameFile) {
-        if (!this.currentFile.exists()) {
-            this.currentFile = new File(nameFile);
-            this.percorso = this.currentFile.getAbsolutePath();
-        }
+        this.currentFile = new File(System.getProperty("user.home")
+                + System.getProperty("file.separator")
+                + nameFile + ".txt");
+        this.percorso = this.currentFile.getAbsolutePath();
     }
 
     /**
@@ -74,8 +74,10 @@ public class Controller {
      *          if you insert a word, will be write in the File
      */
     public void writeOnFile(final String word) {
-        try (BufferedWriter w = new BufferedWriter(new FileWriter(this.currentFile))) {
+        try (FileWriter file = new FileWriter(this.currentFile);
+              BufferedWriter w = new BufferedWriter(file)) {
             w.write(word);
+            w.newLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
