@@ -46,8 +46,11 @@ public final class SimpleGUI {
     public SimpleGUI() {
         final JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
+
+        /* Buttons */
         final JButton saveB = new JButton("Save");
         panel.add(saveB, BorderLayout.SOUTH);
+
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -63,7 +66,7 @@ public final class SimpleGUI {
                 if (area.getText() != null) {
                     //creiamo il controller, otteniemo il testo e boom il gioco è fatto
                     final Controller c1 = new Controller();
-                    c1.setFile("newfile");
+                    c1.setFile("newf");
 
                     c1.writeOnFile(area.getText());
                     System.out.println(c1.getPATH());

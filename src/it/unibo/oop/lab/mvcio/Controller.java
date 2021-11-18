@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * 
  */
-public class Controller {
+public class Controller implements ControllerInterface {
 
     /*
      * This class must implement a simple controller responsible of I/O access. It
@@ -43,8 +43,7 @@ public class Controller {
     private String percorso = PATH;
 
     /**
-     *  @param nameFile
-     *          set a new File where you can write
+     *  {@inheritDoc}
      */
     public void setFile(final String nameFile) {
         this.currentFile = new File(System.getProperty("user.home")
@@ -54,24 +53,21 @@ public class Controller {
     }
 
     /**
-     *  @return 
-     *          the Name of currentFile
+     *  {@inheritDoc}
      */
     public String getFile() {
        return this.currentFile.getName();
     }
 
     /**
-     *  @return String
-     *          return PATH
+     *  {@inheritDoc}
      */
     public String getPATH() {
         return this.percorso;
     }
 
     /**
-     *  @param word
-     *          if you insert a word, will be write in the File
+     *  {@inheritDoc}
      */
     public void writeOnFile(final String word) {
         try (FileWriter file = new FileWriter(this.currentFile);
