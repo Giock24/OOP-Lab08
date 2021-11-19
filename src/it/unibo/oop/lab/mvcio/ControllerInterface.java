@@ -1,5 +1,7 @@
 package it.unibo.oop.lab.mvcio;
 
+import java.io.File;
+
 public interface ControllerInterface {
 
     /**
@@ -12,7 +14,7 @@ public interface ControllerInterface {
      *  @return 
      *          the Name of currentFile
      */
-    String getFile();
+    File getFile();
 
     /**
      *  @return String

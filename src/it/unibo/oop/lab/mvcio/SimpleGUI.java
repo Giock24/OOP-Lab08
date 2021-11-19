@@ -54,8 +54,9 @@ public final class SimpleGUI {
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        final JTextArea area = new JTextArea("Text Area");
+        final JTextArea area = new JTextArea();
         panel.add(area, BorderLayout.CENTER);
+        area.setLineWrap(true);
 
         /*
          * Handlers

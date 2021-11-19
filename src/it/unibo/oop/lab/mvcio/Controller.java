@@ -55,8 +55,8 @@ public class Controller implements ControllerInterface {
     /**
      *  {@inheritDoc}
      */
-    public String getFile() {
-       return this.currentFile.getName();
+    public File getFile() {
+       return this.currentFile;
     }
 
     /**
