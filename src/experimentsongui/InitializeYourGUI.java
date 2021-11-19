@@ -13,10 +13,13 @@ public final class InitializeYourGUI {
         final FirstGUI g1 = new FirstGUI();
         g1.display();
         */
-
+        /*
         final GUIWithDifComp g2 = new GUIWithDifComp();
         g2.display();
+        */
 
+        final LayoutManagerExperiment g3 = new LayoutManagerExperiment();
+        g3.display();
     }
 
 }
