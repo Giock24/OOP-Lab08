@@ -4,24 +4,18 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
-public class LayoutManagerExperiment implements GUIInterface{
+public class LayoutManagerExperiment implements GUIInterface {
 
     private static final String TITLE = "Prove Layout";
     private static final int WIDTH = 500;
     private static final int HEIGHT = 500;
-    private static final int LARGE = 15;
+    //private static final int LARGE = 15;
     private final JFrame frame = new JFrame();
 
     public LayoutManagerExperiment() {
-
-        final String[] strings = new String[] {"1", "2", "3", "4"};
 
         // Parte frame
         frame.setTitle(LayoutManagerExperiment.TITLE);
@@ -57,5 +51,5 @@ public class LayoutManagerExperiment implements GUIInterface{
         frame.setVisible(true);
 
     }
-    
+
 }

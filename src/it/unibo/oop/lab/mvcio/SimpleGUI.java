@@ -51,9 +51,6 @@ public final class SimpleGUI {
         final JButton saveB = new JButton("Save");
         panel.add(saveB, BorderLayout.SOUTH);
 
-        frame.setContentPane(panel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         final JTextArea area = new JTextArea();
         panel.add(area, BorderLayout.CENTER);
         area.setLineWrap(true);
@@ -97,6 +94,9 @@ public final class SimpleGUI {
          * flag makes the OS window manager take care of the default positioning
          * on screen. Results may vary, but it is generally the best choice.
          */
+        frame.setContentPane(panel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         frame.setLocationByPlatform(true);
         frame.setVisible(true);
     }
