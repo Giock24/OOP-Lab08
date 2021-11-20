@@ -1,9 +1,14 @@
 package it.unibo.oop.lab.mvcio;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+
+import javax.swing.JTextArea;
 
 /**
  * 
@@ -76,6 +81,26 @@ public class Controller implements ControllerInterface {
             w.newLine();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    /**
+     *  {@inheritDoc}
+     */
+    public void loadFile(final JTextArea area) {
+        if (this.currentFile.exists()) {
+            try (BufferedReader r = new BufferedReader(new FileReader(this.currentFile))) {
+                String line = null;
+                while ((line = r.readLine()) != null) {
+                    //System.out.println(line);
+                    area.append("" + line + "\n");
+
+                }
+            } catch (FileNotFoundException e1) {
+                e1.printStackTrace();
+            } catch (IOException e2) {
+                 e2.printStackTrace();
+            }
         }
     }
 

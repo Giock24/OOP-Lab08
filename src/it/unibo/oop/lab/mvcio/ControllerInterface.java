@@ -2,6 +2,8 @@ package it.unibo.oop.lab.mvcio;
 
 import java.io.File;
 
+import javax.swing.JTextArea;
+
 public interface ControllerInterface {
 
     /**
@@ -22,11 +24,16 @@ public interface ControllerInterface {
      */
     String getPATH();
 
-
     /**
      *  @param word
      *          if you insert a word, it'll be written in the File
      */
     void writeOnFile(String word);
+
+    /**
+     *  @param area
+     *          every time you call this method, load on JTextArea
+     */
+    void loadFile(JTextArea area);
 
 }

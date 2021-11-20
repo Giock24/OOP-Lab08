@@ -17,8 +17,9 @@ import javax.swing.JTextArea;
  */
 public final class SimpleGUI {
 
-    private static final String TITLE = "My First Java graphical interface";
+    private static final String TITLE = "MY NOTEPAD :)";
     private final JFrame frame = new JFrame(TITLE);
+    private final Controller c = new Controller();
 
     /*
      * Once the Controller is done, implement this class in such a way that:
@@ -48,12 +49,22 @@ public final class SimpleGUI {
         panel.setLayout(new BorderLayout());
 
         /* Buttons */
-        final JButton saveB = new JButton("Save");
-        panel.add(saveB, BorderLayout.SOUTH);
-
         final JTextArea area = new JTextArea();
         panel.add(area, BorderLayout.CENTER);
         area.setLineWrap(true);
+
+        /* new panel2 with FlowsLayout */
+        final JPanel panel2 = new JPanel();
+        panel.add(panel2, BorderLayout.SOUTH);
+
+        /* Buttons for panel2 */
+        final JButton load = new JButton("Load");
+        panel2.add(load);
+
+        final JButton saveB = new JButton("Save");
+        panel2.add(saveB);
+
+        c.loadFile(area);
 
         /*
          * Handlers
@@ -63,13 +74,24 @@ public final class SimpleGUI {
             public void actionPerformed(final ActionEvent e) {
                 if (area.getText() != null) {
                     //creiamo il controller, otteniemo il testo e boom il gioco è fatto
-                    final Controller c1 = new Controller();
-                    c1.setFile("newf");
+                    //c.setFile("newf");
 
-                    c1.writeOnFile(area.getText());
-                    System.out.println(c1.getPATH());
-                    System.out.println(c1.getFile());
+                    c.writeOnFile(area.getText());
+                    //System.out.println(c.getPATH());
+                    //System.out.println(c.getFile());
                 }
+            }
+
+        });
+
+        load.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent e) {
+                //Pulisco ...
+                area.setText("");
+
+                // e Ricarico
+                c.loadFile(area);
             }
 
         });
