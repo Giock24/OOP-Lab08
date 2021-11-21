@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.border.TitledBorder;
 
 /**
  * A very simple program using a graphical interface.
@@ -48,6 +49,7 @@ public final class SimpleGUI {
     public SimpleGUI() {
         final JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
+        panel.setBorder(new TitledBorder("Prova"));
 
         /* Buttons */
         final JTextArea area = new JTextArea();
@@ -57,6 +59,7 @@ public final class SimpleGUI {
         /* new panel2 with FlowsLayout */
         final JPanel panel2 = new JPanel();
         panel2.setLayout(new FlowLayout(FlowLayout.RIGHT));
+        panel2.setBorder(new TitledBorder("FlowLayout"));
         panel.add(panel2, BorderLayout.SOUTH);
 
         /* Buttons for panel2 */
