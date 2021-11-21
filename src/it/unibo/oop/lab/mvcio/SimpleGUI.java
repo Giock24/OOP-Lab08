@@ -1,6 +1,7 @@
 package it.unibo.oop.lab.mvcio;
 
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -55,6 +56,7 @@ public final class SimpleGUI {
 
         /* new panel2 with FlowsLayout */
         final JPanel panel2 = new JPanel();
+        panel2.setLayout(new FlowLayout(FlowLayout.RIGHT));
         panel.add(panel2, BorderLayout.SOUTH);
 
         /* Buttons for panel2 */
