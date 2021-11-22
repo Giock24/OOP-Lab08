@@ -10,7 +10,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.border.TitledBorder;
 
 /**
@@ -54,7 +56,8 @@ public final class SimpleGUI {
         /* Buttons */
         final JTextArea area = new JTextArea();
         panel.add(area, BorderLayout.CENTER);
-        area.setLineWrap(true);
+        //area.setLineWrap(true);
+        this.showVerticalBar(area, panel);
 
         /* new panel2 with FlowsLayout */
         final JPanel panel2 = new JPanel();
@@ -126,6 +129,16 @@ public final class SimpleGUI {
 
         frame.setLocationByPlatform(true);
         frame.setVisible(true);
+    }
+    
+    public void showVerticalBar(JTextArea area, JPanel panel) {
+    	final JScrollPane scroll = new JScrollPane(area);
+    	scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+    	panel.add(scroll);
+    	
+    	final JScrollPane scroll2 = new JScrollPane(area);
+    	scroll2.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+    	panel.add(scroll2);
     }
 
     public static void main(final String... s) {

@@ -93,7 +93,8 @@ public class Controller implements ControllerInterface {
                 String line = null;
                 while ((line = r.readLine()) != null) {
                     //System.out.println(line);
-                    area.append("" + line + "\n");
+                    area.append(line);
+                    area.append("\n");
 
                 }
             } catch (FileNotFoundException e1) {
