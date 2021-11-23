@@ -38,7 +38,7 @@ public class Controller implements ControllerInterface {
      * to a software that runs correctly on every platform.
      */
 
-	private static final String SEP = System.getProperty("file.separator");
+    private static final String SEP = System.getProperty("file.separator");
     private static final String PATH = System.getProperty("user.home")
             + SEP + "OneDrive" + SEP + "Documenti" + SEP + "ONE PIECE E NARUTO.txt";
 

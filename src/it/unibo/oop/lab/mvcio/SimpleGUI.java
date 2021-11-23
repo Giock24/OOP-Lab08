@@ -130,15 +130,15 @@ public final class SimpleGUI {
         frame.setLocationByPlatform(true);
         frame.setVisible(true);
     }
-    
-    public void showVerticalBar(JTextArea area, JPanel panel) {
-    	final JScrollPane scroll = new JScrollPane(area);
-    	scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-    	panel.add(scroll);
-    	
-    	final JScrollPane scroll2 = new JScrollPane(area);
-    	scroll2.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-    	panel.add(scroll2);
+
+    public void showVerticalBar(final JTextArea area, final JPanel panel) {
+        final JScrollPane scroll = new JScrollPane(area);
+        scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+        panel.add(scroll);
+
+        final JScrollPane scroll2 = new JScrollPane(area);
+        scroll2.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        panel.add(scroll2);
     }
 
     public static void main(final String... s) {
