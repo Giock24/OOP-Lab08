@@ -7,6 +7,8 @@ import java.util.Random;
 import javax.swing.JPanel;
 
 import java.awt.Graphics;
+import java.awt.Color;
+import java.awt.Point;
 
 public class MyDrawPanel extends JPanel {
 
@@ -24,7 +26,7 @@ public class MyDrawPanel extends JPanel {
     @Override
     protected final void paintComponent(final Graphics g) {
        super.paintComponent(g); 
-       for (Map.Entry<Point, Color> e : this.circles.entrySet()) {
+       for (final Map.Entry<Point, Color> e : this.circles.entrySet()) {
            g.setColor(e.getValue());
            g.fillOval(e.getKey().x, e.getKey().y, RADIUS, RADIUS);
        }

@@ -10,6 +10,14 @@ public class Point {
         this.y = y;
     }
 
+    public final int getX() {
+        return this.x;
+    }
+
+    public final int getY() {
+        return this.y;
+    }
+
     @Override
     public final String toString() {
         return " Coordinates: " + this.x + " " + this.y + " ";
