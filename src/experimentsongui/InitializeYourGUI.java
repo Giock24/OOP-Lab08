@@ -17,9 +17,12 @@ public final class InitializeYourGUI {
         final GUIWithDifComp g2 = new GUIWithDifComp();
         g2.display();
         */
-
+        /*
         final LayoutManagerExperiment g3 = new LayoutManagerExperiment();
         g3.display();
+        */
+        final PaintCircle g4 = new PaintCircle();
+        g4.display();
     }
 
 }
