@@ -2,6 +2,8 @@ package experimentsongui;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -24,11 +26,11 @@ public class PaintCircle implements GUIInterface {
         final JPanel panel2 = new JPanel();
         panel2.setLayout(new BorderLayout());
 
-        final JPanel panel3 = new JPanel();
-        panel3.setLayout(new BorderLayout());
+        final MyDrawPanel dPanel = new MyDrawPanel();
+        dPanel.setLayout(new BorderLayout());
 
         panel.add(panel2, BorderLayout.EAST);
-        panel.add(panel3, BorderLayout.CENTER);
+        panel.add(dPanel, BorderLayout.CENTER);
 
         /* component of panel2 */
         panel2.setBorder(new TitledBorder("Yo"));
@@ -38,9 +40,21 @@ public class PaintCircle implements GUIInterface {
         panel2.add(draw, BorderLayout.NORTH);
 
         /* component of panel3 */
-        panel3.setBorder(new TitledBorder("Circle here.."));
+        dPanel.setBorder(new TitledBorder("Circle here.."));
 
         /* Handlers */
+        dPanel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(final MouseEvent e) {
+                dPanel.addPoint(e.getX(), e.getY());
+                dPanel.repaint();
+            }
+        });
+
+        draw.addActionListener(e -> {
+            dPanel.addRandomPoint();
+            dPanel.repaint();
+        });
 
     }
 
@@ -49,6 +63,7 @@ public class PaintCircle implements GUIInterface {
      */
     public void display() {
         frame.setVisible(true);
+        frame.setResizable(false);
     }
 
 }
