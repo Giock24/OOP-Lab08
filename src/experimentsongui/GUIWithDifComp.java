@@ -20,7 +20,8 @@ public class GUIWithDifComp implements GUIInterface {
 
     public GUIWithDifComp() {
 
-        final String[] strings = new String[] {"1", "2", "3", "4"};
+        final String[] strings;
+        strings = new String[] {"1", "2", "3", "4"};
 
         // Parte frame
         frame.setTitle(GUIWithDifComp.TITLE);

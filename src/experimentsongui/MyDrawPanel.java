@@ -15,7 +15,7 @@ public class MyDrawPanel extends JPanel {
     private static final long serialVersionUID = -3728785126836461762L;
     private static final int RADIUS = 30;
     private static final Random RNG = new Random();
-    private Map<Point, Color> circles = new HashMap<>();
+    private final Map<Point, Color> circles = new HashMap<>();
 
     // override of draw method
     /*
