@@ -21,8 +21,12 @@ public final class InitializeYourGUI {
         final LayoutManagerExperiment g3 = new LayoutManagerExperiment();
         g3.display();
         */
+        /*
         final PaintCircle g4 = new PaintCircle();
         g4.display();
+        */
+        final GUIWithDialogOnClose g5 = new GUIWithDialogOnClose();
+        g5.display();
     }
 
 }
